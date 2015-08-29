@@ -41,7 +41,8 @@
         android:gravity="center"
         android:layout_weight="1.0"
         android:text="未冻结"
-        android:shadowColor="#ff000000"
+        android:textColor="#80000000"
+        android:shadowColor="#7f000000"
   		android:shadowRadius="3.0"
   		android:shadowDx="2"
    		android:shadowDy="2" />
