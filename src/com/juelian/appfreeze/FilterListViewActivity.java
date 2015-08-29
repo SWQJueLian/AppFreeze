@@ -1,15 +1,9 @@
 ﻿package com.juelian.appfreeze;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import android.R.integer;
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -23,7 +17,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class FilterListViewActivity extends Activity {
 
@@ -104,15 +97,15 @@ public class FilterListViewActivity extends Activity {
 				Editor editor = sp.edit();
 				editor.putInt(appPackNameString, 1);
 				editor.commit();
-				browseApplicationInfoAdapter.notifyDataSetChanged();
             }
         });
 
-        mBuilder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
+		mBuilder.setNegativeButton(android.R.string.cancel,
+				new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+					}
+				});
 
         mBuilder.show();
     }
@@ -130,15 +123,15 @@ public class FilterListViewActivity extends Activity {
 				Editor editor = sp.edit();
 				editor.putInt(appPackNameString, 0);
 				editor.commit();
-				browseApplicationInfoAdapter.notifyDataSetChanged();
             }
         });
 
-        mBuilder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
+		mBuilder.setNegativeButton(android.R.string.cancel,
+				new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+					}
+				});
 
         mBuilder.show();
     }
@@ -146,9 +139,7 @@ public class FilterListViewActivity extends Activity {
 
     @Override
     protected void onResume() {
-        // TODO Auto-generated method stub
         super.onResume();
-        browseApplicationInfoAdapter.notifyDataSetChanged();
         Log.e("mijl-->","onresume");
     }
 

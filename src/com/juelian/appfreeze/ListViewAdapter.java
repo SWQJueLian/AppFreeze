@@ -2,8 +2,6 @@
 
 import java.util.List;
 
-import android.R.anim;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +44,6 @@ public class ListViewAdapter extends BaseAdapter {
         return 0;
     }
 
-    @SuppressLint("ResourceAsColor")
 	@Override
     public View getView(int position, View convertview, ViewGroup arg2) {
         System.out.println("getView at " + position);
@@ -66,4 +63,5 @@ public class ListViewAdapter extends BaseAdapter {
         }
         return view;
     }
+    
 }

@@ -1,8 +1,6 @@
 package com.juelian.appfreeze;
 
-import android.R.integer;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 
 public class AppInfo {
