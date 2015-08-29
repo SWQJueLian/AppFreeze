@@ -58,7 +58,7 @@ public class ListViewAdapter extends BaseAdapter {
         
         int flag = mContext.getSharedPreferences("wl", Context.MODE_WORLD_READABLE).getInt(appInfo.getPkgName(), 0);
         if (flag==1) {
-        	is_Freeze.setText("已冻结");
+        	is_Freeze.setText(R.string.is_freeze);
         	is_Freeze.setTextColor(mContext.getResources().getColor(android.R.color.holo_red_light));
         }
         return view;

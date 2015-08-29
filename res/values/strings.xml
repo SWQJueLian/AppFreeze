@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">软件冻结器</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-
+    <string name="app_name">AppFreeze</string>
+    <string name="is_freeze">freeze</string>
+    <string name="is_not_freeze">NotForzen</string>
+    <string name="dialog_title">Waring</string>
+    <string name="add_freeze_message_format">add this app “%1$s” into freeze list？</string>
+    <string name="remove_freeze_message_format">remove this app “%1$s” from freeze list？</string> 
+    <string name="all_app">all app</string>
+    <string name="uses_app">users app</string>
 </resources>

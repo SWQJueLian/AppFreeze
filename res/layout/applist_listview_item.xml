@@ -26,7 +26,7 @@
         android:layout_gravity="center|left"
         android:textSize="18sp"
         android:textColor="@android:color/holo_orange_dark"
-        android:text="程序名" />
+        android:text="appname" />
     
     <View
         android:layout_gravity="center_vertical"
@@ -40,7 +40,7 @@
         android:layout_height="fill_parent"
         android:gravity="center"
         android:layout_weight="1.0"
-        android:text="未冻结"
+        android:text="@string/is_not_freeze"
         android:textColor="#80000000"
         android:shadowColor="#7f000000"
   		android:shadowRadius="3.0"

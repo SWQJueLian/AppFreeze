@@ -14,13 +14,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="所有程序" />
+        android:text="@string/all_app" />
     
     <Button
         android:id="@+id/users_app"
         android:layout_below="@id/all_app"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="用户程序" />
+        android:text="@string/uses_app" />
 
 </RelativeLayout>

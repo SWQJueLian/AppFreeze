@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">软件冻结器</string>
+    <string name="is_freeze">已冻结</string>
+    <string name="is_not_freeze">未冻结</string>
+    <string name="dialog_title">警告</string>
+    <string name="add_freeze_message_format">你确定要将“%1$s”加入冻结列表？</string>
+    <string name="remove_freeze_message_format">你确定要将“%1$s”移出冻结列表？</string> 
+    <string name="all_app">所有软件</string>
+    <string name="uses_app">用户软件</string>
+</resources>

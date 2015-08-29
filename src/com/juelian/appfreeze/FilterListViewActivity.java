@@ -87,8 +87,8 @@ public class FilterListViewActivity extends Activity {
 
     public void confirmAdd() {
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
-        mBuilder.setTitle("提示");
-        mBuilder.setMessage("你确定要将“"+appNameString+"”加入冻结列表？");
+        mBuilder.setTitle(R.string.dialog_title);
+        mBuilder.setMessage(String.format(getResources().getString(R.string.add_freeze_message_format), appNameString));
         mBuilder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 
             @Override
@@ -97,6 +97,7 @@ public class FilterListViewActivity extends Activity {
 				Editor editor = sp.edit();
 				editor.putInt(appPackNameString, 1);
 				editor.commit();
+				browseApplicationInfoAdapter.notifyDataSetChanged();
             }
         });
 
@@ -113,8 +114,8 @@ public class FilterListViewActivity extends Activity {
 
     public void confirmRemove() {
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
-        mBuilder.setTitle("提示");
-        mBuilder.setMessage("你确定要将“"+appNameString+"”移出冻结列表？");
+        mBuilder.setTitle(R.string.dialog_title);
+        mBuilder.setMessage(String.format(getResources().getString(R.string.remove_freeze_message_format), appNameString));
         mBuilder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
 
             @Override
@@ -123,6 +124,7 @@ public class FilterListViewActivity extends Activity {
 				Editor editor = sp.edit();
 				editor.putInt(appPackNameString, 0);
 				editor.commit();
+				browseApplicationInfoAdapter.notifyDataSetChanged();
             }
         });
 
