@@ -8,8 +8,7 @@
     <string name="add_freeze_message_format">add this app “%1$s” into freeze list？</string>
     <string name="remove_freeze_message_format">remove this app “%1$s” from freeze list？</string> 
     <string name="all_app">all app</string>
-    <string name="uses_app">users app</string>
-    <!-- this itme use translation software  -->
-    <string name="tip"><b>"All the software"</b> means the software in the system components, which is not recommended to freeze. It may cause problems such as the system crash or the system function is invalid.
-\n\n<b>"user software"</b> is a list of software installed by users. It can be frozen in general, but it may cause you to use the software that can run the service exception.</string>
+    <string name="uses_app">user app</string>
+    <string name="tip"><b>"all app"</b> means this include system software, this list i'm not suggest forzen. it maybe let system crash or a system function is invalid and so on.
+\n\n<b>"user app"</b>means thia only include software installed by users. notmally it can be forzen, but it may be let software can't run their service.</string>
 </resources>
