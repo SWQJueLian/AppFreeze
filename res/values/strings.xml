@@ -9,4 +9,7 @@
     <string name="remove_freeze_message_format">remove this app “%1$s” from freeze list？</string> 
     <string name="all_app">all app</string>
     <string name="uses_app">users app</string>
+    <!-- this itme use translation software  -->
+    <string name="tip"><b>"All the software"</b> means the software in the system components, which is not recommended to freeze. It may cause problems such as the system crash or the system function is invalid.
+\n\n<b>"user software"</b> is a list of software installed by users. It can be frozen in general, but it may cause you to use the software that can run the service exception.</string>
 </resources>

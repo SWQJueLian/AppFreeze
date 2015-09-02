@@ -137,12 +137,4 @@ public class FilterListViewActivity extends Activity {
 
         mBuilder.show();
     }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.e("mijl-->","onresume");
-    }
-
 }
