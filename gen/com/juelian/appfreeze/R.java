@@ -41,8 +41,6 @@ public final class R {
         public static final int is_freeze=0x7f050001;
         public static final int is_not_freeze=0x7f050002;
         public static final int remove_freeze_message_format=0x7f050005;
-        /**  this itme use translation software  
-         */
         public static final int tip=0x7f050008;
         public static final int uses_app=0x7f050007;
     }
