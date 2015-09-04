@@ -40,6 +40,7 @@ public final class R {
         public static final int dialog_title=0x7f050003;
         public static final int is_freeze=0x7f050001;
         public static final int is_not_freeze=0x7f050002;
+        public static final int loading=0x7f050009;
         public static final int remove_freeze_message_format=0x7f050005;
         public static final int tip=0x7f050008;
         public static final int uses_app=0x7f050007;

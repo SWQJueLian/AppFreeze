@@ -28,7 +28,7 @@ public class ListViewAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        System.out.println("size" + mlistAppInfo.size());
+        //System.out.println("size" + mlistAppInfo.size());
         return mlistAppInfo.size();
     }
 

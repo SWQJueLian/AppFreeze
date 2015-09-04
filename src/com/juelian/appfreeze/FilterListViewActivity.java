@@ -6,12 +6,14 @@ import java.util.List;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,20 +30,18 @@ public class FilterListViewActivity extends Activity {
 	private String appNameString = "";
 	public SharedPreferences sp;
 	private AppInfo appInfo = null;
+	
+	private ProgressDialog mProgressDialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.applist_listview);
 		sp = getSharedPreferences("wl", Context.MODE_WORLD_READABLE);
+		
 		mListView = (ListView) findViewById(R.id.all_app_listview);
-		mAppInfos = queryFilterAppInfo(getIntent().getIntExtra("filter",
-				MainActivity.ALL_APP));
-		browseApplicationInfoAdapter = new ListViewAdapter(
-				getApplicationContext(), mAppInfos);
-		mListView.setAdapter(browseApplicationInfoAdapter);
 		mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
+			
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
@@ -55,6 +55,30 @@ public class FilterListViewActivity extends Activity {
 				}
 			}
 		});
+		
+		mProgressDialog = new ProgressDialog(FilterListViewActivity.this);
+		mProgressDialog.setMessage(getResources().getText(R.string.loading));
+		mProgressDialog.show();
+		
+		new AsyncTask<Void, Void, Void>() {
+
+			@Override
+			protected Void doInBackground(Void... params) {
+				mAppInfos = queryFilterAppInfo(getIntent().getIntExtra(
+						"filter", MainActivity.ALL_APP));
+				browseApplicationInfoAdapter = new ListViewAdapter(
+						getApplicationContext(), mAppInfos);
+				return null;
+			}
+			
+			@Override
+			protected void onPostExecute(Void result) {
+				// TODO Auto-generated method stub
+				super.onPostExecute(result);
+				mListView.setAdapter(browseApplicationInfoAdapter);
+				mProgressDialog.cancel();
+			}
+		}.execute();
 	}
 
 	private List<AppInfo> queryFilterAppInfo(int filter) {
