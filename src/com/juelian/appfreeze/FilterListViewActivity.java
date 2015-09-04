@@ -45,9 +45,9 @@ public class FilterListViewActivity extends Activity {
             	appInfo = mAppInfos.get(position);
                 appPackNameString = appInfo.getPkgName();
                 appNameString = appInfo.getAppLabel();
-                if (sp.getInt(appPackNameString, 0)==1) {
-                	confirmRemove();		
-				}else {
+				if (sp.getInt(appPackNameString, 0) == 1) {
+					confirmRemove();
+				} else {
 					confirmAdd();
 				}
             }
@@ -62,13 +62,15 @@ public class FilterListViewActivity extends Activity {
         appInfos.clear();
         switch (filter) {
 		case MainActivity.ALL_APP:
-	        for (ApplicationInfo app : listAppcations) {
-	            appInfos.add(getAppInfo(app));
-	        }
+			for (ApplicationInfo app : listAppcations) {
+				if (!app.packageName.equals(getBaseContext().getPackageName())) {
+					appInfos.add(getAppInfo(app));
+				}
+			}
 			break;
 		case MainActivity.USERS_APP:
 			for (ApplicationInfo app : listAppcations) {
-				if ((app.flags & ApplicationInfo.FLAG_SYSTEM) <= 0) {
+				if ((app.flags & ApplicationInfo.FLAG_SYSTEM) <= 0 && (!app.packageName.equals(getBaseContext().getPackageName()))) {
 					appInfos.add(getAppInfo(app));
 				}
 			}
