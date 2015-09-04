@@ -1,13 +1,11 @@
 package com.juelian.appfreeze;
 
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 
 public class AppInfo {
 
     private String appLabel;
     private Drawable appIcon;
-    private Intent intent;
     private String pkgName;
 
     public AppInfo(){}
@@ -23,12 +21,6 @@ public class AppInfo {
     }
     public void setAppIcon(Drawable appIcon) {
         this.appIcon = appIcon;
-    }
-    public Intent getIntent() {
-        return intent;
-    }
-    public void setIntent(Intent intent) {
-        this.intent = intent;
     }
     public String getPkgName(){
         return pkgName ;

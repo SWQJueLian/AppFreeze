@@ -16,17 +16,12 @@ public class Utils {
     			pw.flush();
     			pw.close();
     			p.waitFor();
-    			Log.e("mijl-->", p.exitValue()+""+root);
-    			//return true;
     		} else {
 	    		Process p = Runtime.getRuntime().exec(cmd);
 	    		p.waitFor();
-	    		Log.e("mijl-->", p.exitValue()+"");
-	    		//return true;
     		}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		//return false;
     }
 }
