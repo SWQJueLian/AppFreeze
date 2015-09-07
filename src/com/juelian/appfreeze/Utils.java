@@ -6,22 +6,29 @@ import android.util.Log;
 
 public class Utils {
 
-    public static void runCmd(String cmd){
-    	try {
-    		boolean root = true;
-    		if (root) {
-    			Process p = Runtime.getRuntime().exec("su");
-    			PrintWriter pw = new PrintWriter(p.getOutputStream());
-    			pw.println(cmd);
-    			pw.flush();
-    			pw.close();
-    			p.waitFor();
-    		} else {
-	    		Process p = Runtime.getRuntime().exec(cmd);
-	    		p.waitFor();
-    		}
+	public static boolean runCmd(String cmd) {
+		try {
+			boolean root = true;
+			Process process = null;
+			if (root) {
+				process = Runtime.getRuntime().exec("su");
+				PrintWriter pw = new PrintWriter(process.getOutputStream());
+				pw.println(cmd);
+				pw.flush();
+				pw.close();
+				process.waitFor();
+				Log.d("mijl-->", "root");
+			} else {
+				process = Runtime.getRuntime().exec(cmd);
+				process.waitFor();
+				Log.d("mijl-->", "root-->");
+			}
+			if (process!=null) {
+				return process.exitValue()!=0 ? false : true;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-    }
+		return false;
+	}
 }

@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class FilterListViewActivity extends Activity {
 
@@ -129,12 +130,15 @@ public class FilterListViewActivity extends Activity {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						Utils.runCmd("pm block " + appPackNameString
-								+ ";pm disable " + appPackNameString);
-						Editor editor = sp.edit();
-						editor.putInt(appPackNameString, 1);
-						editor.commit();
-						browseApplicationInfoAdapter.notifyDataSetChanged();
+						if (Utils.runCmd("pm block " + appPackNameString
+								+ ";pm disable " + appPackNameString)) {
+							Editor editor = sp.edit();
+							editor.putInt(appPackNameString, 1);
+							editor.commit();
+							browseApplicationInfoAdapter.notifyDataSetChanged();							
+						}else {
+							Toast.makeText(FilterListViewActivity.this, R.string.root_fail, 0).show();
+						}
 					}
 				});
 
@@ -159,12 +163,15 @@ public class FilterListViewActivity extends Activity {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						Utils.runCmd("pm unblock " + appPackNameString
-								+ ";pm enable " + appPackNameString);
-						Editor editor = sp.edit();
-						editor.putInt(appPackNameString, 0);
-						editor.commit();
-						browseApplicationInfoAdapter.notifyDataSetChanged();
+						if (Utils.runCmd("pm unblock " + appPackNameString
+								+ ";pm enable " + appPackNameString)) {
+							Editor editor = sp.edit();
+							editor.putInt(appPackNameString, 0);
+							editor.commit();
+							browseApplicationInfoAdapter.notifyDataSetChanged();							
+						}else {
+							Toast.makeText(FilterListViewActivity.this, R.string.root_fail, 0).show();
+						}
 					}
 				});
 
