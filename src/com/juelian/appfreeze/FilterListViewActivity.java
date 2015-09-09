@@ -59,9 +59,14 @@ public class FilterListViewActivity extends Activity {
 		
 		mProgressDialog = new ProgressDialog(FilterListViewActivity.this);
 		mProgressDialog.setMessage(getResources().getText(R.string.loading));
-		mProgressDialog.show();
+		//mProgressDialog.show();
 		
 		new AsyncTask<Void, Void, Void>() {
+			
+			@Override
+			protected void onPreExecute() {
+				mProgressDialog.show();
+			};
 
 			@Override
 			protected Void doInBackground(Void... params) {
