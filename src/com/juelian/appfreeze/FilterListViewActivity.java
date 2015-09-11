@@ -59,6 +59,9 @@ public class FilterListViewActivity extends Activity {
 		
 		mProgressDialog = new ProgressDialog(FilterListViewActivity.this);
 		mProgressDialog.setMessage(getResources().getText(R.string.loading));
+		mProgressDialog.setCanceledOnTouchOutside(false);
+		mProgressDialog.setCancelable(false);
+		
 		//mProgressDialog.show();
 		
 		new AsyncTask<Void, Void, Void>() {
