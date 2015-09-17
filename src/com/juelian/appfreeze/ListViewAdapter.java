@@ -10,7 +10,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-//自定义适配器类，提供给listView的自定义view
 public class ListViewAdapter extends BaseAdapter {
 
     Context mContext;
@@ -27,14 +26,11 @@ public class ListViewAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        // TODO Auto-generated method stub
-        //System.out.println("size" + mlistAppInfo.size());
         return mlistAppInfo.size();
     }
 
     @Override
     public Object getItem(int position) {
-        // TODO Auto-generated method stub
         return mlistAppInfo.get(position);
     }
 
