@@ -38,7 +38,7 @@ public class FilterListViewActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.applist_listview);
-		sp = getSharedPreferences("wl", Context.MODE_WORLD_READABLE);
+		sp = getSharedPreferences("wl", Context.MODE_WORLD_WRITEABLE);
 		
 		mListView = (ListView) findViewById(R.id.all_app_listview);
 		mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

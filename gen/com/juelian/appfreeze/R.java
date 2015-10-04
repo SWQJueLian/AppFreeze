@@ -20,11 +20,12 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int all_app_listview=0x7f060003;
+        public static final int all_app_listview=0x7f060004;
         public static final int all_apps=0x7f060001;
-        public static final int app_logo=0x7f060004;
-        public static final int app_name=0x7f060005;
-        public static final int is_freeze=0x7f060006;
+        public static final int app_logo=0x7f060005;
+        public static final int app_name=0x7f060006;
+        public static final int clean_list=0x7f060003;
+        public static final int is_freeze=0x7f060007;
         public static final int textView1=0x7f060000;
         public static final int users_app=0x7f060002;
     }
@@ -37,6 +38,7 @@ public final class R {
         public static final int add_freeze_message_format=0x7f050004;
         public static final int all_app=0x7f050006;
         public static final int app_name=0x7f050000;
+        public static final int clean_freezen_list=0x7f05000b;
         public static final int dialog_title=0x7f050003;
         public static final int is_freeze=0x7f050001;
         public static final int is_not_freeze=0x7f050002;
