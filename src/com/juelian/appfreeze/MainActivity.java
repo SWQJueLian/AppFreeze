@@ -8,6 +8,7 @@ import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
@@ -55,6 +56,7 @@ public class MainActivity extends Activity {
 				Editor editor = sharedPreferences.edit();
 				editor.clear();
 				editor.commit();
+				Toast.makeText(getBaseContext(), R.string.success, Toast.LENGTH_SHORT).show();
 			}
 		});
 	}
