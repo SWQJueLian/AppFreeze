@@ -33,6 +33,12 @@
         android:layout_height="wrap_content"
         android:text="@string/uses_app" />
 
-
+    <Button
+        android:id="@+id/clean_list"
+        android:paddingTop="15.0dp"
+        android:paddingBottom="15.0dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/clean_freezen_list" /> 
 
 </LinearLayout>
