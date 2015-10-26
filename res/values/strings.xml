@@ -5,14 +5,14 @@
     <string name="is_freeze">freeze</string>
     <string name="is_not_freeze">NotForzen</string>
     <string name="dialog_title">Waring</string>
-    <string name="add_freeze_message_format">add this app \"%1$s\" into freeze list？</string>
-    <string name="remove_freeze_message_format">remove this app \"%1$s\" from freeze list？</string> 
+    <string name="add_freeze_message_format">Forzen this app \"%1$s\" ？</string>
+    <string name="remove_freeze_message_format">Unfreeze this app \"%1$s\" ？</string> 
     <string name="all_app">system app</string>
     <string name="uses_app">user app</string>
     <string name="tip"><b>"system app"</b> means this is system software, this list i\'m not suggest forzen. it maybe let system crash or a system function is invalid and so on.
 \n\n<b>"user app"</b> means thia only include software installed by users. normally it can be forzen, but it may be let software can\'t run their service.</string>
-    <string name="loading">Loading...</string>
+    <string name="loading">Loading&#8230;&#8230;</string>
     <string name="root_fail">can\'t get Root Permission</string>
-    <string name="clean_freezen_list">clean all freezed app</string>
-    <string name="success">success! wait for while apps will UnForzen.</string>
+    <string name="clean_freezen_list">Clear all frozen app</string>
+    <string name="success">Success! please Wait for secs, The app will be one by one been Unfreeze.</string>
 </resources>

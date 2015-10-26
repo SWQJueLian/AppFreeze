@@ -5,13 +5,13 @@
     <string name="is_freeze">已冻结</string>
     <string name="is_not_freeze">未冻结</string>
     <string name="dialog_title">警告</string>
-    <string name="add_freeze_message_format">你确定要将“%1$s”加入冻结列表？</string>
-    <string name="remove_freeze_message_format">你确定要将“%1$s”移出冻结列表？</string> 
+    <string name="add_freeze_message_format">你确定要冻结“%1$s”吗？</string>
+    <string name="remove_freeze_message_format">你确定要解冻“%1$s”吗？</string> 
     <string name="all_app">系统软件</string>
     <string name="uses_app">用户软件</string>
     <string name="tip"><b>“系统软件”</b>即表示系统组件内的软件，不建议随意冻结，会有可能造成系统崩溃或系统功能无效等问题。
 \n\n<b>“用户软件”</b>即表示用用户自己安装的软件列表，列表内一般情况下可以随意冻结，但是有可能会导致你使用的软件一些运行服务异常。</string>
-    <string name="loading">正在展开列表...</string>
+    <string name="loading">正在展开列表 &#8230;&#8230;</string>
     <string name="root_fail">无法获取Root权限</string>
     <string name="clean_freezen_list">还原所有冻结</string>
     <string name="success">成功！稍等几秒，冻结的软件会陆续解冻！</string>
