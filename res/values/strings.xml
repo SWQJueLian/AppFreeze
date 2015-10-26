@@ -10,7 +10,7 @@
     <string name="all_app">system app</string>
     <string name="uses_app">user app</string>
     <string name="tip"><b>"system app"</b> means this is system software, this list i\'m not suggest forzen. it maybe let system crash or a system function is invalid and so on.
-\n\n<b>"user app"</b> means thia only include software installed by users. normally it can be forzen, but it may be let software can\'t run their service.</string>
+\n\n<b>"user app"</b> means this only include software installed by users. normally it can be forzen, but it may be let software can\'t run their service.</string>
     <string name="loading">Loading&#8230;&#8230;</string>
     <string name="root_fail">can\'t get Root Permission</string>
     <string name="clean_freezen_list">Clear all frozen app</string>
