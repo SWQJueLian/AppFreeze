@@ -101,8 +101,10 @@ public class FilterListViewActivity extends Activity {
 		switch (filter) {
 		case MainActivity.ALL_APP:
 			for (ApplicationInfo app : listAppcations) {
-				if (!app.packageName.equals(getBaseContext().getPackageName())) {
-					appInfos.add(getAppInfo(app));
+				if ((app.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+					if (!app.packageName.equals(getBaseContext().getPackageName())) {
+						appInfos.add(getAppInfo(app));
+					}
 				}
 			}
 			break;
