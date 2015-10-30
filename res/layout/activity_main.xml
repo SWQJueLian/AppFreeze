@@ -23,7 +23,7 @@
         android:paddingBottom="15.0dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/all_app" />
+        android:text="@string/sys_app" />
     
     <Button
         android:id="@+id/users_app"
