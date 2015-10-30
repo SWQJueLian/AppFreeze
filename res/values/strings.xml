@@ -3,7 +3,7 @@
 
     <string name="app_name">AppFreeze</string>
     <string name="is_freeze">freeze</string>
-    <string name="is_not_freeze">Unfreeze</string>
+    <string name="is_not_freeze">Unfrozen</string>
     <string name="dialog_title">Waring</string>
     <string name="add_freeze_message_format">Forzen this \"%1$s\" Software？</string>
     <string name="remove_freeze_message_format">Unfreeze this \"%1$s\" Software？</string> 
