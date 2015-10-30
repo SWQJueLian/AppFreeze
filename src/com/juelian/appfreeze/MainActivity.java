@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
 						Map<String, ?> map = sharedPreferences.getAll();
 						if (map.size()==0) {
 							Looper.prepare();
-							Toast.makeText(getApplicationContext(), "冻结列表为空，无需清空！", 0).show();
+							Toast.makeText(getApplicationContext(), R.string.unnecessary_unfreeze_software, 0).show();
 							Looper.loop();
 							return;
 						}

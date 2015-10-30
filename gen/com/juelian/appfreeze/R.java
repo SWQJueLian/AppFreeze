@@ -47,6 +47,7 @@ public final class R {
         public static final int success=0x7f05000c;
         public static final int sys_app=0x7f050006;
         public static final int tip=0x7f050008;
+        public static final int unnecessary_unfreeze_software=0x7f05000d;
         public static final int uses_app=0x7f050007;
     }
 }
