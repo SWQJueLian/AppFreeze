@@ -15,7 +15,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -31,8 +30,8 @@ public class FilterListViewActivity extends Activity {
 	private String appNameString = "";
 	public SharedPreferences sp;
 	private AppInfo appInfo = null;
-	
 	private ProgressDialog mProgressDialog;
+	private boolean state = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -140,15 +139,38 @@ public class FilterListViewActivity extends Activity {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						if (Utils.runCmd("pm block " + appPackNameString
-								+ ";pm disable " + appPackNameString)) {
-							Editor editor = sp.edit();
-							editor.putInt(appPackNameString, 1);
-							editor.commit();
-							browseApplicationInfoAdapter.notifyDataSetChanged();							
-						}else {
-							Toast.makeText(FilterListViewActivity.this, R.string.root_fail, 0).show();
-						}
+						new AsyncTask<Void, Void, Void>() {
+							
+							protected void onPreExecute() {
+								mProgressDialog.setMessage("正在冻结...");
+								mProgressDialog.show();
+							};
+
+							@Override
+							protected Void doInBackground(Void... params) {
+								if (Utils.runCmd("pm block " + appPackNameString
+										+ ";pm disable " + appPackNameString)) {
+									Editor editor = sp.edit();
+									editor.putInt(appPackNameString, 1);
+									editor.commit();
+									state = true;
+								}else {
+									state = false;
+								}
+								return null;
+							}
+							
+							@Override
+							protected void onPostExecute(Void result) {
+								// TODO Auto-generated method stub
+								super.onPostExecute(result);
+								browseApplicationInfoAdapter.notifyDataSetChanged();
+								if (!state) {
+									Toast.makeText(FilterListViewActivity.this, R.string.root_fail, 0).show();
+								}
+								mProgressDialog.cancel();
+							}
+						}.execute();
 					}
 				});
 
@@ -173,15 +195,38 @@ public class FilterListViewActivity extends Activity {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						if (Utils.runCmd("pm unblock " + appPackNameString
-								+ ";pm enable " + appPackNameString)) {
-							Editor editor = sp.edit();
-							editor.putInt(appPackNameString, 0);
-							editor.commit();
-							browseApplicationInfoAdapter.notifyDataSetChanged();							
-						}else {
-							Toast.makeText(FilterListViewActivity.this, R.string.root_fail, 0).show();
-						}
+						new AsyncTask<Void, Void, Void>() {
+							
+							protected void onPreExecute() {
+								mProgressDialog.setMessage("正在解冻...");
+								mProgressDialog.show();
+							};
+
+							@Override
+							protected Void doInBackground(Void... params) {
+								if (Utils.runCmd("pm unblock " + appPackNameString
+										+ ";pm enable " + appPackNameString)) {
+									Editor editor = sp.edit();
+									editor.putInt(appPackNameString, 0);
+									editor.commit();
+									state = true;
+								}else {
+									state = false;
+								}
+								return null;
+							}
+
+							@Override
+							protected void onPostExecute(Void result) {
+								// TODO Auto-generated method stub
+								super.onPostExecute(result);
+								browseApplicationInfoAdapter.notifyDataSetChanged();
+								if (!state) {
+									Toast.makeText(FilterListViewActivity.this, R.string.root_fail, 0).show();
+								}
+								mProgressDialog.cancel();
+							}
+						}.execute();							
 					}
 				});
 
