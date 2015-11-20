@@ -32,6 +32,7 @@ public class FilterListViewActivity extends BaseActivity {
 	private AppInfo appInfo = null;
 	private ProgressDialog mProgressDialog;
 	private boolean state = false;
+	private int getFilter = 1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,12 @@ public class FilterListViewActivity extends BaseActivity {
 		setContentView(R.layout.applist_listview);
 		sp = getSharedPreferences("wl", Context.MODE_WORLD_WRITEABLE);
 		
+		getFilter = getIntent().getIntExtra("filter", 1);
+		if (getFilter==1) {
+			getActionBar().setTitle(R.string.sys_app);
+		}else {
+			getActionBar().setTitle(R.string.uses_app);
+		}
 		mListView = (ListView) findViewById(R.id.all_app_listview);
 		mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			
@@ -72,8 +79,7 @@ public class FilterListViewActivity extends BaseActivity {
 
 			@Override
 			protected Void doInBackground(Void... params) {
-				mAppInfos = queryFilterAppInfo(getIntent().getIntExtra(
-						"filter", MainActivity.ALL_APP));
+				mAppInfos = queryFilterAppInfo(getFilter);
 				browseApplicationInfoAdapter = new ListViewAdapter(
 						getApplicationContext(), mAppInfos);
 				return null;
@@ -98,7 +104,7 @@ public class FilterListViewActivity extends BaseActivity {
 		List<AppInfo> appInfos = new ArrayList<AppInfo>();
 		appInfos.clear();
 		switch (filter) {
-		case MainActivity.ALL_APP:
+		case MainActivity.SYS_APP:
 			for (ApplicationInfo app : listAppcations) {
 				if ((app.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
 					if (!app.packageName.equals(getBaseContext().getPackageName())) {
