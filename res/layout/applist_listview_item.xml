@@ -15,8 +15,7 @@
         android:minHeight="50.0dp"
         android:maxHeight="50.0dp"
         android:scaleType="fitCenter"
-        android:layout_gravity="center|left"
-        android:src="@drawable/ic_launcher" />
+        android:layout_gravity="center|left" />
     
     <TextView
         android:layout_weight="3"
@@ -25,8 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|left"
         android:textSize="18sp"
-        android:textColor="@android:color/holo_orange_dark"
-        android:text="appname" />
+        android:textColor="@android:color/holo_orange_dark" />
     
     <View
         android:layout_gravity="center_vertical"
