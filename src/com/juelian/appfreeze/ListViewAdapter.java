@@ -55,6 +55,7 @@ public class ListViewAdapter extends BaseAdapter {
         if (flag==1) {
         	is_Freeze.setText(R.string.is_freeze);
         	is_Freeze.setTextColor(mContext.getResources().getColor(android.R.color.holo_red_light));
+        	appName.setTextColor(mContext.getResources().getColor(android.R.color.holo_red_light));
         }
         return view;
     }
