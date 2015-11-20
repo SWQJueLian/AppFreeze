@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 	
 	private Button mAllAppButton;
 	private Button mUserAppButton;
@@ -28,7 +28,6 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
 		mAllAppButton = (Button) findViewById(R.id.all_apps);
 		mUserAppButton = (Button) findViewById(R.id.users_app);
 		mCleanButton = (Button) findViewById(R.id.clean_list);

@@ -20,7 +20,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class FilterListViewActivity extends Activity {
+public class FilterListViewActivity extends BaseActivity {
 
 	private ListView mListView;
 	private List<AppInfo> mAppInfos;
