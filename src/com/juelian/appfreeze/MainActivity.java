@@ -20,7 +20,7 @@ public class MainActivity extends BaseActivity {
 	private Button mUserAppButton;
 	private Button mCleanButton;
 	
-	public static final int ALL_APP = 1;
+	public static final int SYS_APP = 1;
 	public static final int USERS_APP = 2;
 
 
@@ -37,7 +37,7 @@ public class MainActivity extends BaseActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				filterAppAndStartActivity(ALL_APP);
+				filterAppAndStartActivity(SYS_APP);
 			}
 		});
 		
