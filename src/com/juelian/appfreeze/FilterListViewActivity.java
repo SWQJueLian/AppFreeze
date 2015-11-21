@@ -4,17 +4,20 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -39,13 +42,16 @@ public class FilterListViewActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.applist_listview);
 		sp = getSharedPreferences("wl", Context.MODE_WORLD_WRITEABLE);
-		
+		ActionBar actionBar = getActionBar();
 		getFilter = getIntent().getIntExtra("filter", 1);
 		if (getFilter==1) {
-			getActionBar().setTitle(R.string.sys_app);
+			actionBar.setTitle(R.string.sys_app);
 		}else {
-			getActionBar().setTitle(R.string.uses_app);
+			actionBar.setTitle(R.string.uses_app);
 		}
+		
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		
 		mListView = (ListView) findViewById(R.id.all_app_listview);
 		mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			
@@ -93,6 +99,18 @@ public class FilterListViewActivity extends BaseActivity {
 				mProgressDialog.cancel();
 			}
 		}.execute();
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		if (item.getItemId()==android.R.id.home) {
+			Intent intent = new Intent(getBaseContext(), MainActivity.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intent);
+			
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	private List<AppInfo> queryFilterAppInfo(int filter) {
