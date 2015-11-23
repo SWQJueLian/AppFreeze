@@ -2,7 +2,6 @@ package com.juelian.appfreeze;
 
 import java.util.Map;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;

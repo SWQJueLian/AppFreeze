@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -190,7 +189,7 @@ public class FilterListViewActivity extends BaseActivity {
 								super.onPostExecute(result);
 								browseApplicationInfoAdapter.notifyDataSetChanged();
 								if (!state) {
-									Toast.makeText(FilterListViewActivity.this, R.string.root_fail, 0).show();
+									Toast.makeText(FilterListViewActivity.this, R.string.root_fail, Toast.LENGTH_SHORT).show();
 								}
 								mProgressDialog.cancel();
 							}
@@ -246,7 +245,7 @@ public class FilterListViewActivity extends BaseActivity {
 								super.onPostExecute(result);
 								browseApplicationInfoAdapter.notifyDataSetChanged();
 								if (!state) {
-									Toast.makeText(FilterListViewActivity.this, R.string.root_fail, 0).show();
+									Toast.makeText(FilterListViewActivity.this, R.string.root_fail, Toast.LENGTH_SHORT).show();
 								}
 								mProgressDialog.cancel();
 							}
