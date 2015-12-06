@@ -101,6 +101,18 @@ public class FilterListViewActivity extends BaseActivity {
 	}
 	
 	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		//fix thread let dialog belong act is gone
+		if (mProgressDialog!=null) {
+			if (mProgressDialog.isShowing()) {
+				mProgressDialog.dismiss();
+			}
+		}
+	}
+	
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub
 		if (item.getItemId()==android.R.id.home) {
@@ -165,6 +177,7 @@ public class FilterListViewActivity extends BaseActivity {
 						new AsyncTask<Void, Void, Void>() {
 							
 							protected void onPreExecute() {
+								mProgressDialog = new ProgressDialog(FilterListViewActivity.this);
 								mProgressDialog.setMessage("正在冻结...");
 								mProgressDialog.show();
 							};
@@ -221,7 +234,8 @@ public class FilterListViewActivity extends BaseActivity {
 						new AsyncTask<Void, Void, Void>() {
 							
 							protected void onPreExecute() {
-								mProgressDialog.setMessage("正在解冻...");
+								mProgressDialog = new ProgressDialog(FilterListViewActivity.this);
+								mProgressDialog.setMessage("正在冻结...");
 								mProgressDialog.show();
 							};
 
@@ -247,7 +261,7 @@ public class FilterListViewActivity extends BaseActivity {
 								if (!state) {
 									Toast.makeText(FilterListViewActivity.this, R.string.root_fail, Toast.LENGTH_SHORT).show();
 								}
-								mProgressDialog.cancel();
+								mProgressDialog.dismiss();
 							}
 						}.execute();							
 					}
