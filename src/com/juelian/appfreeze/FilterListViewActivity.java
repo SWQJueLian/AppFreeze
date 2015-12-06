@@ -204,7 +204,7 @@ public class FilterListViewActivity extends BaseActivity {
 								if (!state) {
 									Toast.makeText(FilterListViewActivity.this, R.string.root_fail, Toast.LENGTH_SHORT).show();
 								}
-								mProgressDialog.cancel();
+								mProgressDialog.dismiss();
 							}
 						}.execute();
 					}
@@ -235,7 +235,7 @@ public class FilterListViewActivity extends BaseActivity {
 							
 							protected void onPreExecute() {
 								mProgressDialog = new ProgressDialog(FilterListViewActivity.this);
-								mProgressDialog.setMessage("正在冻结...");
+								mProgressDialog.setMessage("正在解冻...");
 								mProgressDialog.show();
 							};
 
