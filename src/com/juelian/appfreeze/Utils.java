@@ -6,6 +6,10 @@ import android.util.Log;
 
 public class Utils {
 
+	/**
+	 * @param cmd 要运行的命令
+	 * @return 返回false表示无法获取ROOT权限
+	 */
 	public static boolean runCmd(String cmd) {
 		try {
 			boolean root = true;

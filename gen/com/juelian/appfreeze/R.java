@@ -17,13 +17,15 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class id {
-        public static final int all_app_listview=0x7f060004;
+        public static final int all_app_listview=0x7f060006;
         public static final int all_apps=0x7f060001;
-        public static final int app_logo=0x7f060005;
-        public static final int app_name=0x7f060006;
-        public static final int clean_list=0x7f060003;
-        public static final int is_freeze=0x7f060007;
+        public static final int app_logo=0x7f060007;
+        public static final int app_name=0x7f060008;
+        public static final int clean_list=0x7f060004;
+        public static final int freezed_app=0x7f060003;
+        public static final int is_freeze=0x7f060009;
         public static final int textView1=0x7f060000;
+        public static final int textView2=0x7f060005;
         public static final int users_app=0x7f060002;
     }
     public static final class layout {
@@ -38,17 +40,18 @@ public final class R {
     public static final class string {
         public static final int add_freeze_message_format=0x7f050004;
         public static final int app_name=0x7f050000;
-        public static final int clean_freezen_list=0x7f05000b;
+        public static final int clean_freezen_list=0x7f05000c;
         public static final int dialog_title=0x7f050003;
+        public static final int freeze_app=0x7f05000b;
         public static final int is_freeze=0x7f050001;
         public static final int is_not_freeze=0x7f050002;
         public static final int loading=0x7f050009;
         public static final int remove_freeze_message_format=0x7f050005;
         public static final int root_fail=0x7f05000a;
-        public static final int success=0x7f05000c;
+        public static final int success=0x7f05000d;
         public static final int sys_app=0x7f050006;
         public static final int tip=0x7f050008;
-        public static final int unnecessary_unfreeze_software=0x7f05000d;
+        public static final int unnecessary_unfreeze_software=0x7f05000e;
         public static final int uses_app=0x7f050007;
     }
 }

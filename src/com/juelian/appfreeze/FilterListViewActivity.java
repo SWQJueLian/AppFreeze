@@ -14,6 +14,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.database.DataSetObserver;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -35,11 +36,13 @@ public class FilterListViewActivity extends BaseActivity {
 	private ProgressDialog mProgressDialog;
 	private boolean state = false;
 	private int getFilter = 1;
+	private Context mContext;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.applist_listview);
+		mContext = getBaseContext();
 		sp = getSharedPreferences("wl", Context.MODE_WORLD_WRITEABLE);
 		ActionBar actionBar = getActionBar();
 		getFilter = getIntent().getIntExtra("filter", 1);
@@ -96,6 +99,9 @@ public class FilterListViewActivity extends BaseActivity {
 				super.onPostExecute(result);
 				mListView.setAdapter(browseApplicationInfoAdapter);
 				mProgressDialog.cancel();
+				if (mAppInfos.isEmpty()) {
+					Toast.makeText(mContext, "无被冻结的应用", 0).show();
+				}
 			}
 		}.execute();
 	}
@@ -151,6 +157,14 @@ public class FilterListViewActivity extends BaseActivity {
 				}
 			}
 			break;
+		case MainActivity.FREEZED_APP:
+			for (ApplicationInfo app : listAppcations) {
+				// 1为已被冻结的，0这是没有冻结
+				if (sp.getInt(app.packageName, 0)==1) {
+					appInfos.add(getAppInfo(app));
+				}
+			}
+			break;
 		}
 		return appInfos;
 	}
@@ -202,7 +216,8 @@ public class FilterListViewActivity extends BaseActivity {
 								super.onPostExecute(result);
 								browseApplicationInfoAdapter.notifyDataSetChanged();
 								if (!state) {
-									Toast.makeText(FilterListViewActivity.this, R.string.root_fail, Toast.LENGTH_SHORT).show();
+									Toast.makeText(FilterListViewActivity.this, R.string.root_fail, Toast.LENGTH_LONG).show();
+									gotoRootMgr();
 								}
 								mProgressDialog.dismiss();
 							}
@@ -259,7 +274,8 @@ public class FilterListViewActivity extends BaseActivity {
 								super.onPostExecute(result);
 								browseApplicationInfoAdapter.notifyDataSetChanged();
 								if (!state) {
-									Toast.makeText(FilterListViewActivity.this, R.string.root_fail, Toast.LENGTH_SHORT).show();
+									Toast.makeText(FilterListViewActivity.this, R.string.root_fail, Toast.LENGTH_LONG).show();
+									gotoRootMgr();
 								}
 								mProgressDialog.dismiss();
 							}
@@ -275,5 +291,16 @@ public class FilterListViewActivity extends BaseActivity {
 				});
 
 		mBuilder.show();
+	}
+	
+	/**
+	 * 跳转到MIUI的ROOT管理界面
+	 */
+	public void gotoRootMgr(){
+		Intent intent = new Intent();
+		intent.setAction("miui.intent.action.ROOT_MANAGER");
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		intent.addCategory(Intent.CATEGORY_DEFAULT);
+		mContext.startActivity(intent);
 	}
 }

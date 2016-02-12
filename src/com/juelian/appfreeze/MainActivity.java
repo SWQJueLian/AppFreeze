@@ -17,10 +17,12 @@ public class MainActivity extends BaseActivity {
 	
 	private Button mAllAppButton;
 	private Button mUserAppButton;
+	private Button mFreezeAppButton;
 	private Button mCleanButton;
 	
 	public static final int SYS_APP = 1;
 	public static final int USERS_APP = 2;
+	public static final int FREEZED_APP = 3;
 
 
 	@Override
@@ -30,6 +32,7 @@ public class MainActivity extends BaseActivity {
 		mAllAppButton = (Button) findViewById(R.id.all_apps);
 		mUserAppButton = (Button) findViewById(R.id.users_app);
 		mCleanButton = (Button) findViewById(R.id.clean_list);
+		mFreezeAppButton = (Button) findViewById(R.id.freezed_app);
 		
 		mAllAppButton.setOnClickListener(new View.OnClickListener() {
 			
@@ -48,6 +51,16 @@ public class MainActivity extends BaseActivity {
 				filterAppAndStartActivity(USERS_APP);
 			}
 		});
+		
+		mFreezeAppButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				filterAppAndStartActivity(FREEZED_APP);
+			}
+		});
+		
 		
 		mCleanButton.setOnClickListener(new View.OnClickListener() {
 			

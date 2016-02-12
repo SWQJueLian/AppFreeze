@@ -13,8 +13,8 @@
         android:id="@+id/textView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80.0dp"
-        android:layout_marginBottom="80.0dp"
+        android:layout_marginTop="55.0dp"
+        android:layout_marginBottom="55.0dp"
         android:text="@string/tip" />
     
     <Button
@@ -32,7 +32,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/uses_app" />
-    
+
+<Button
+        android:id="@+id/freezed_app"
+        android:paddingTop="15.0dp"
+        android:paddingBottom="15.0dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/freeze_app" />
+
     <Button
         android:id="@+id/clean_list"
         android:paddingTop="15.0dp"
@@ -40,7 +48,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/clean_freezen_list" />
-    
 
+    <TextView
+        android:id="@+id/textView2"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_red_light"
+        android:layout_marginTop="50.0dp"
+        android:gravity="center_horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Powered By 绝恋。。" />
 
 </LinearLayout>

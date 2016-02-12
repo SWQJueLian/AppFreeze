@@ -13,6 +13,7 @@
 \n\n<b>"User Software"</b> means this only include software installed by users. normally it can be forzen, but it may be let software can\'t run their service.</string>
     <string name="loading">Loading&#8230;&#8230;</string>
     <string name="root_fail">Can\'t get Root Permission</string>
+    <string name="freeze_app">freeze app</string>
     <string name="clean_freezen_list">Unfreeze all Software</string>
     <string name="success">Success! please Wait for secs, The app will be one by one been Unfreeze.</string>
 	<string name="unnecessary_unfreeze_software">unnecessary unfreeze any software! cause is the list empty.</string>
