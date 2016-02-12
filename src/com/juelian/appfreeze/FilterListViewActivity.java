@@ -17,6 +17,7 @@ import android.content.pm.PackageManager;
 import android.database.DataSetObserver;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemProperties;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -297,6 +298,10 @@ public class FilterListViewActivity extends BaseActivity {
 	 * 跳转到MIUI的ROOT管理界面
 	 */
 	public void gotoRootMgr(){
+		/* cond miui */
+		if ("def".equals(SystemProperties.get("ro.miui.ui.version.code", "def"))) {
+			return;
+		}
 		Intent intent = new Intent();
 		intent.setAction("miui.intent.action.ROOT_MANAGER");
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
