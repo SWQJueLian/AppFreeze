@@ -2,12 +2,11 @@ package com.juelian.appfreeze;
 
 import java.io.PrintWriter;
 
-import android.util.Log;
-
 public class Utils {
 
 	/**
-	 * @param cmd 要运行的命令
+	 * @param cmd
+	 *            要运行的命令
 	 * @return 返回false表示无法获取ROOT权限
 	 */
 	public static boolean runCmd(String cmd) {
@@ -21,14 +20,12 @@ public class Utils {
 				pw.flush();
 				pw.close();
 				process.waitFor();
-				Log.d("mijl-->", "root");
 			} else {
 				process = Runtime.getRuntime().exec(cmd);
 				process.waitFor();
-				Log.d("mijl-->", "root-->");
 			}
-			if (process!=null) {
-				return process.exitValue()!=0 ? false : true;
+			if (process != null) {
+				return process.exitValue() != 0 ? false : true;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
