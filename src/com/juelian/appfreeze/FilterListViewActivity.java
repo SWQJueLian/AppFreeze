@@ -100,9 +100,7 @@ public class FilterListViewActivity extends BaseActivity {
 				super.onPostExecute(result);
 				mListView.setAdapter(browseApplicationInfoAdapter);
 				mProgressDialog.cancel();
-				if (mAppInfos.isEmpty()) {
-					Toast.makeText(mContext, "无被冻结的应用", 0).show();
-				}
+				
 			}
 		}.execute();
 	}

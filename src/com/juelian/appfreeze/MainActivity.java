@@ -57,6 +57,10 @@ public class MainActivity extends BaseActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if(getSharedPreferences("wl", Context.MODE_WORLD_WRITEABLE).getAll().size()==0){
+					Toast.makeText(getApplicationContext(), "无被冻结的应用", 0).show();
+					return;
+				}
 				filterAppAndStartActivity(FREEZED_APP);
 			}
 		});
@@ -66,20 +70,18 @@ public class MainActivity extends BaseActivity {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
+				final SharedPreferences sharedPreferences = getSharedPreferences("wl", Context.MODE_WORLD_WRITEABLE);
+				final Map<String, ?> map = sharedPreferences.getAll();
+				if (map.size()==0) {
+					Toast.makeText(getApplicationContext(), R.string.unnecessary_unfreeze_software, 0).show();
+					return;
+				}
 				new Thread(new Runnable() {
 					
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
-						SharedPreferences sharedPreferences = getSharedPreferences("wl", Context.MODE_WORLD_WRITEABLE);
-						Map<String, ?> map = sharedPreferences.getAll();
-						if (map.size()==0) {
-							Looper.prepare();
-							Toast.makeText(getApplicationContext(), R.string.unnecessary_unfreeze_software, 0).show();
-							Looper.loop();
-							return;
-						}
 						for (String string : map.keySet()) {
 							Log.e("mijl-->", "packname: "+string);
 							Utils.runCmd("pm unblock " + string);
