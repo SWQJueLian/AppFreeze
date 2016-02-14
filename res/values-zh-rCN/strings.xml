@@ -16,5 +16,5 @@
     <string name="clean_freezen_list">一键解冻所有软件</string>
     <string name="freeze_app">已冻结的软件</string>
     <string name="success">成功！稍等几秒，冻结的软件会陆续解冻！</string>
-    <string name="unnecessary_unfreeze_software">冻结列表为空，无需清空！</string>
+    <string name="unnecessary_unfreeze_software">无被冻结的应用</string>
 </resources>

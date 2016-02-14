@@ -58,7 +58,7 @@ public class MainActivity extends BaseActivity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				if(getSharedPreferences("wl", Context.MODE_WORLD_WRITEABLE).getAll().size()==0){
-					Toast.makeText(getApplicationContext(), "无被冻结的应用", 0).show();
+					Toast.makeText(getApplicationContext(), R.string.unnecessary_unfreeze_software, 0).show();
 					return;
 				}
 				filterAppAndStartActivity(FREEZED_APP);
