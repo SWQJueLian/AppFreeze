@@ -2,43 +2,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
     tools:context="com.juelian.appfreeze.MainActivity" >
-    
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8.0dp"
         android:layout_marginBottom="15.0dp"
+        android:layout_marginTop="8.0dp"
         android:text="@string/tip" />
-    
-    <Button
-        android:id="@+id/all_apps"
-        android:paddingTop="15.0dp"
-        android:paddingBottom="15.0dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/sys_app" />
-    
-    <Button
-        android:id="@+id/users_app"
-        android:paddingTop="15.0dp"
-        android:paddingBottom="15.0dp"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/uses_app" />
 
-    <Button
-        android:id="@+id/clean_list"
-        android:paddingTop="15.0dp"
-        android:paddingBottom="15.0dp"
-        android:layout_width="fill_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/clean_freezen_list" /> 
+        android:gravity="center"
+        android:paddingTop="15dp" >
+
+        <Button
+            android:id="@+id/all_apps"
+            android:layout_width="250.0dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15.0dp"
+            android:paddingTop="15.0dp"
+            android:text="@string/sys_app" />
+
+        <Button
+            android:layout_toRightOf="@id/all_apps"
+            android:id="@+id/users_app"
+            android:layout_width="250.0dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15.0dp"
+            android:paddingTop="15.0dp"
+            android:text="@string/uses_app" />
+
+        <Button
+            android:layout_below="@id/all_apps"
+            android:id="@+id/freezed_app"
+            android:layout_width="250.0dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15.0dp"
+            android:paddingTop="15.0dp"
+            android:text="@string/freeze_app" />
+
+        <Button
+            android:layout_below="@id/all_apps"
+            android:layout_toRightOf="@id/freezed_app"
+            android:id="@+id/clean_list"
+            android:layout_width="250.0dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15.0dp"
+            android:paddingTop="15.0dp"
+            android:text="@string/clean_freezen_list" />
+    </RelativeLayout>
 
 </LinearLayout>

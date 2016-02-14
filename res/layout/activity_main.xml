@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:text="@string/uses_app" />
 
-<Button
+	<Button
         android:id="@+id/freezed_app"
         android:paddingTop="15.0dp"
         android:paddingBottom="15.0dp"
