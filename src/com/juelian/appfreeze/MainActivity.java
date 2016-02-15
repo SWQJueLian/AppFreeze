@@ -23,12 +23,14 @@ public class MainActivity extends BaseActivity {
 	public static final int SYS_APP = 1;
 	public static final int USERS_APP = 2;
 	public static final int FREEZED_APP = 3;
+	
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
 		mAllAppButton = (Button) findViewById(R.id.all_apps);
 		mUserAppButton = (Button) findViewById(R.id.users_app);
 		mCleanButton = (Button) findViewById(R.id.clean_list);
@@ -57,7 +59,7 @@ public class MainActivity extends BaseActivity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if(getSharedPreferences("wl", Context.MODE_WORLD_WRITEABLE).getAll().size()==0){
+				if(!getSharedPreferences("wl", Context.MODE_WORLD_WRITEABLE).getAll().containsValue(1)){
 					Toast.makeText(getApplicationContext(), R.string.unnecessary_unfreeze_software, 0).show();
 					return;
 				}
@@ -70,10 +72,9 @@ public class MainActivity extends BaseActivity {
 			
 			@Override
 			public void onClick(View v) {
-
 				final SharedPreferences sharedPreferences = getSharedPreferences("wl", Context.MODE_WORLD_WRITEABLE);
 				final Map<String, ?> map = sharedPreferences.getAll();
-				if (map.size()==0) {
+				if (!map.containsValue(1)) {
 					Toast.makeText(getApplicationContext(), R.string.unnecessary_unfreeze_software, 0).show();
 					return;
 				}
