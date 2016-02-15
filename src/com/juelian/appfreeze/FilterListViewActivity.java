@@ -159,7 +159,7 @@ public class FilterListViewActivity extends BaseActivity {
 		case MainActivity.FREEZED_APP:
 			for (ApplicationInfo app : listAppcations) {
 				// 1为已被冻结的，0这是没有冻结
-				if (sp.getInt(app.packageName, 0)==1) {
+				if (sp.getInt(app.packageName, 0)!=0) {
 					appInfos.add(getAppInfo(app));
 				}
 			}
