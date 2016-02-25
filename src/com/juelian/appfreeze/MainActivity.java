@@ -78,7 +78,8 @@ public class MainActivity extends BaseActivity {
 					Toast.makeText(getApplicationContext(), R.string.unnecessary_unfreeze_software, 0).show();
 					return;
 				}
-				new Thread(new Runnable() {
+				Toast.makeText(getApplicationContext(), "正在后台解冻中...请耐心等待一会", 0).show();
+				new Thread() {
 					
 					@Override
 					public void run() {
@@ -95,7 +96,7 @@ public class MainActivity extends BaseActivity {
 						Toast.makeText(getBaseContext(), R.string.success, Toast.LENGTH_SHORT).show();
 						Looper.loop();
 					}
-				}).start();
+				}.start();
 			}
 		});
 	}

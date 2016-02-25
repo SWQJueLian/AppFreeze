@@ -15,6 +15,6 @@
     <string name="root_fail">无法获取Root权限，跳转到ROOT管理界面，请给予软件权限！</string>
     <string name="clean_freezen_list">一键解冻所有软件</string>
     <string name="freeze_app">已冻结的软件</string>
-    <string name="success">成功！稍等几秒，冻结的软件会陆续解冻！</string>
+    <string name="success">成功执行！约几秒后，被冻结的软件会陆续恢复！</string>
     <string name="unnecessary_unfreeze_software">无被冻结的应用</string>
 </resources>
