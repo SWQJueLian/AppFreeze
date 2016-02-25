@@ -47,10 +47,12 @@ public class FilterListViewActivity extends BaseActivity {
 		sp = getSharedPreferences("wl", Context.MODE_WORLD_WRITEABLE);
 		ActionBar actionBar = getActionBar();
 		getFilter = getIntent().getIntExtra("filter", 1);
-		if (getFilter==1) {
+		if (getFilter==MainActivity.SYS_APP) {
 			actionBar.setTitle(R.string.sys_app);
-		}else {
+		}else if(getFilter==MainActivity.USERS_APP) {
 			actionBar.setTitle(R.string.uses_app);
+		}else {
+			actionBar.setTitle(R.string.freeze_app);
 		}
 		
 		actionBar.setDisplayHomeAsUpEnabled(true);
